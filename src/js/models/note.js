@@ -1,12 +1,15 @@
-import { notes } from '../data'
-
 export function getNotes() {
   const notes = localStorage.getItem('notes')
-  return JSON.parse(notes)
+  if (notes) {
+    return JSON.parse(notes)
+  }
+  return []
 }
 
 export function saveNote(title, description) {
-  const notes = localStorage.getItem('notes')
+  const localNotes = localStorage.getItem('notes')
+  const notes = localNotes ? JSON.parse(localNotes) : []
+
   const newNote = {
     id: notes.length,
     title,
@@ -16,4 +19,8 @@ export function saveNote(title, description) {
   
   notes.push(newNote)
   localStorage.setItem('notes', JSON.stringify(notes))
+}
+
+export function deleteAll() {
+  localStorage.clear()
 }

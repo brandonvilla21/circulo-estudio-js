@@ -9,7 +9,7 @@ export function generateNoteTemplate(id, title, description, creationDate) {
         </div>
         <div class="card-body">
           <blockquote class="blockquote mb-0">
-            <p>${description}</p>
+            <p style="min-height: 120px;">${description}</p>
             <footer class="blockquote-footer">Creado: <cite title="Source Title">${creationDate}</cite></footer>
           </blockquote>
         </div>
